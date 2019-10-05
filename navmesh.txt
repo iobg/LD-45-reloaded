@@ -1,0 +1,12 @@
+What I've changed using NavMesh:
+
+1. Downloaded NavMeshPlus (2D version of NavMesh) source code from https://github.com/h8man/NavMeshPlus. Move folder to Assets.
+
+2. Created a NavMesh in the scene. I did this by creating an empty GameObject, setting rotation to -90,0,0, and adding a NavMeshSurface2D component. I kept the default settings, except I checked 'Overwrite by Grid'.
+
+3. Split up the tilemaps into two separate ones, one for Ground and one for Walls.
+3a. I added a NavMeshModifider to both, and I checked 'Override Area' for Walls, setting 'Area Type' to Not Walkable. 
+
+4. Went back to the NavMesh object, and clicked Bake.
+
+5. Updated FollowerController. It's literally one line of code.

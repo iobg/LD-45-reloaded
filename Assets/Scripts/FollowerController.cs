@@ -1,25 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class FollowerController : MonoBehaviour
 {	
-	public float moveSpeed;
-    private float vertical;
-    private float horizontal;
-    public Vector2 position;
+
+    // Public variables
+	public float moveSpeed = 10f;
+    public Vector2 followerOffset;
+
+    // Private variables
+    private Vector2 playerPosition;
+    private NavMeshAgent agent;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        //Navmesh code to lock rotation
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
         
     }
 
     // Update is called once per frame
     void Update()
-    {   vertical = PlayerController.instance.vertical -1 ;
-        horizontal = PlayerController.instance.horizontal-1;
-        Vector2 move = new Vector2(horizontal, vertical);
-        position = position + move * moveSpeed * Time.deltaTime;
-        GetComponent<Rigidbody2D>().MovePosition(move);
+    {   
+
+        playerPosition = PlayerController.instance.GetComponent<Rigidbody2D>().position;
+        Vector2 placeToBe = playerPosition + followerOffset;
+
+        // Navmesh move to place
+        agent.SetDestination(placeToBe);
+
     }
 }
