@@ -8,12 +8,8 @@ public class ShootyController : MonoBehaviour
 	public GameObject crosshair;
 	public Camera mainCamera;
 
-	public float fireDelay = 0.15f;
-    public float bulletDamage = 1.0f;
-    public GameObject bulletPrefab;
-
     Vector3 mouseDirection;
-    float fireReloadTime = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +24,6 @@ public class ShootyController : MonoBehaviour
     	Vector3 screenPosition = mainCamera.WorldToScreenPoint(crosshair.transform.position);
     	mouseDirection = Input.mousePosition - new Vector3(screenPosition.x, screenPosition.y, 0);
 
-
-    	 if (fireReloadTime > 0){
-            fireReloadTime -= Time.deltaTime;
-            return;
-        } 
         
     }
 
@@ -49,25 +40,5 @@ public class ShootyController : MonoBehaviour
     }
 
 
-    public void Launch()
-    {
-        // If the cooldown is good
-        if (fireReloadTime <= 0)
-        {
-            // Cost ammo
-            // HealthBar.instance.changeValue(-ammoValue);
 
-            // Get player position
-            Vector3 playerPosition = crosshair.transform.position;
-
-            fireReloadTime = fireDelay;
-            float atan2 = Mathf.Atan2(mouseDirection.y, mouseDirection.x);
-            GameObject bullet = Instantiate(bulletPrefab, playerPosition, Quaternion.Euler(0f, 0f, atan2 * Mathf.Rad2Deg));
-            ProjectileController projectile = bullet.GetComponent<ProjectileController>();
-            projectile.Launch(mouseDirection, bulletDamage);
-
-            // audioSource.PlayOneShot(shootClip);
-        }
-    
-    }
 }

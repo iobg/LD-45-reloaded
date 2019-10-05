@@ -118,8 +118,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af44046d01b07c543850af9ac7c94c99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  follower: {fileID: 0}
   moveSpeed: 5
   followerOffset: {x: 5, y: 5}
+  mainCamera: {fileID: 0}
+  fireDelay: 0.15
+  bulletDamage: 1
+  bulletPrefab: {fileID: 5408189369638057747, guid: 1b8652173a8a6b347a9759f1c2553331,
+    type: 3}
 --- !u!61 &1448077384093073762
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -180,8 +186,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70535391cd97e3d4b9b06ca394a77784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  follower: {fileID: 1448077384093073823}
+  crosshair: {fileID: 0}
   mainCamera: {fileID: 0}
-  fireDelay: 0.15
-  bulletDamage: 1
-  bulletPrefab: {fileID: 0}
