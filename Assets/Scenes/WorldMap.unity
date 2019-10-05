@@ -192,11 +192,21 @@ PrefabInstance:
       propertyPath: weapon
       value: 
       objectReference: {fileID: 1656456820}
+    - target: {fileID: 1448077384093073822, guid: d18d5383604304344b0514da9dfa9cea,
+        type: 3}
+      propertyPath: follower
+      value: 
+      objectReference: {fileID: 1741525305}
     - target: {fileID: 1448077384093073764, guid: d18d5383604304344b0514da9dfa9cea,
         type: 3}
       propertyPath: crosshair
       value: 
       objectReference: {fileID: 1656456819}
+    - target: {fileID: 1448077384093073764, guid: d18d5383604304344b0514da9dfa9cea,
+        type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d18d5383604304344b0514da9dfa9cea, type: 3}
 --- !u!1 &519420028
@@ -7508,6 +7518,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1491830926 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1448077384093073823, guid: d18d5383604304344b0514da9dfa9cea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1448077384326766305}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1656456819
 GameObject:
   m_ObjectHideFlags: 0
@@ -7540,10 +7556,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crosshair: {fileID: 1656456819}
   mainCamera: {fileID: 519420031}
-  fireDelay: 0.15
-  bulletDamage: 1
-  bulletPrefab: {fileID: 5408189369638057747, guid: 1b8652173a8a6b347a9759f1c2553331,
-    type: 3}
 --- !u!212 &1656456821
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7652,6 +7664,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1741525305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1448077384093073823, guid: d18d5383604304344b0514da9dfa9cea,
+    type: 3}
+  m_PrefabInstance: {fileID: 31319319}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2062533682
 GameObject:
   m_ObjectHideFlags: 0
@@ -8141,16 +8159,26 @@ PrefabInstance:
       propertyPath: weapon
       value: 
       objectReference: {fileID: 1656456820}
+    - target: {fileID: 1448077384093073822, guid: d18d5383604304344b0514da9dfa9cea,
+        type: 3}
+      propertyPath: follower
+      value: 
+      objectReference: {fileID: 1491830926}
     - target: {fileID: 1448077384093073764, guid: d18d5383604304344b0514da9dfa9cea,
         type: 3}
       propertyPath: mainCamera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 519420031}
     - target: {fileID: 1448077384093073764, guid: d18d5383604304344b0514da9dfa9cea,
         type: 3}
       propertyPath: crosshair
       value: 
       objectReference: {fileID: 1656456819}
+    - target: {fileID: 1448077384093073764, guid: d18d5383604304344b0514da9dfa9cea,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d18d5383604304344b0514da9dfa9cea, type: 3}
 --- !u!1001 &7745687312148944231
