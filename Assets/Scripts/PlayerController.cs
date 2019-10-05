@@ -7,8 +7,9 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance {get; private set;}
 	public float moveSpeed;
     public Vector2 position;
-    public float horizontal;
-    public float vertical;
+    public float x;
+    public float y;
+
 
     // Start is called before the first frame update
 
@@ -27,11 +28,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
         Vector2 move = new Vector2(horizontal, vertical);
         position = GetComponent<Rigidbody2D>().position;
         position = position + move * moveSpeed * Time.deltaTime;
+        y = position.y;
+        x = position.x;
         GetComponent<Rigidbody2D>().MovePosition(position);
     }
 }
