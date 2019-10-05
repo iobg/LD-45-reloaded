@@ -42,7 +42,7 @@ public class FollowerController : MonoBehaviour
 
         mouseDirection = Input.mousePosition - new Vector3(screenPosition.x, screenPosition.y, 0);
         playerPosition = PlayerController.instance.GetComponent<Rigidbody2D>().position;
-        Vector2 placeToBe = playerPosition + followerOffset;
+        Vector3 placeToBe = playerPosition + followerOffset;
 
         // Navmesh move to place
         agent.SetDestination(placeToBe);
@@ -69,11 +69,11 @@ public class FollowerController : MonoBehaviour
             // HealthBar.instance.changeValue(-ammoValue);
 
             // Get player position
-            Vector3 playerPosition = follower.transform.position;
+            Vector3 followerPosition = follower.transform.position;
 
             // fireReloadTime = fireDelay;
             float atan2 = Mathf.Atan2(mouseDirection.y, mouseDirection.x);
-            GameObject bullet = Instantiate(bulletPrefab, playerPosition, Quaternion.Euler(0f, 0f, atan2 * Mathf.Rad2Deg));
+            GameObject bullet = Instantiate(bulletPrefab, followerPosition, Quaternion.Euler(0f, 0f, atan2 * Mathf.Rad2Deg));
             ProjectileController projectile = bullet.GetComponent<ProjectileController>();
             projectile.Launch(mouseDirection, bulletDamage);
             fireReloadTime += fireDelay;
