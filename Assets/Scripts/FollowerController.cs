@@ -82,4 +82,8 @@ public class FollowerController : MonoBehaviour
         }
     
     }
+
+    public void initialize(Vector2 offset){
+        followerOffset = offset;
+    }
 }
