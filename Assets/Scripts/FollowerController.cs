@@ -9,6 +9,7 @@ public class FollowerController : MonoBehaviour
     // Public variables
 	public float moveSpeed = 10f;
     public Vector2 followerOffset;
+    public ShootyController weapon;
 
     // Private variables
     private Vector2 playerPosition;
@@ -34,6 +35,11 @@ public class FollowerController : MonoBehaviour
 
         // Navmesh move to place
         agent.SetDestination(placeToBe);
+
+         if (Input.GetMouseButton(0))
+        {
+            weapon.Launch();
+        }
 
     }
 }
