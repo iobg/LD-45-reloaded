@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1448077384093073764}
   m_Layer: 8
   m_Name: PistolCat
-  m_TagString: Untagged
+  m_TagString: Follower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8664888703373156033}
   m_Layer: 11
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,6 +97,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.5
   maxHealth: 10
+  delayBetweenShots: 2
+  hasWeapon: 1
+  bulletPrefab: {fileID: 6840749504518885280, guid: fb1a6317897261e4b999a384ae92c4c4,
+    type: 3}
+  enemyDamage: 1
 --- !u!50 &-322947931374179407
 Rigidbody2D:
   serializedVersion: 4
