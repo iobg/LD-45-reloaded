@@ -89,7 +89,9 @@ public class TilemapController : MonoBehaviour
 
     // Turn a tile into dirt
     public void tillTile(Vector3Int tileCoordinate){
-        groundMap.SetTile(tileCoordinate, findTile("DirtRuleTile"));
+        if (groundMap.GetTile(tileCoordinate).name == "GRASS"){
+            groundMap.SetTile(tileCoordinate, findTile("DirtRuleTile"));
+        }
     }
 
 
