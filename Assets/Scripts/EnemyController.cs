@@ -94,7 +94,7 @@ public class EnemyController : MonoBehaviour
         
     }
 
-        public void Damage(float damage)
+     public void Damage(float damage)
     {
         currentHealth -= damage;
         // KO if no health left

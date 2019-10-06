@@ -122,7 +122,8 @@ MonoBehaviour:
   moveSpeed: 10
   followerOffset: {x: 5, y: 5}
   mainCamera: {fileID: 0}
-  fireDelay: 0.15
+  maxHealth: 2
+  fireDelay: 0.5
   bulletDamage: 1
   bulletPrefab: {fileID: 5408189369638057747, guid: 1b8652173a8a6b347a9759f1c2553331,
     type: 3}

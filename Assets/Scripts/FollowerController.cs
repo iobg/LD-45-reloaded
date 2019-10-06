@@ -11,6 +11,7 @@ public class FollowerController : MonoBehaviour
 	public float moveSpeed = 10f;
     public Vector2 followerOffset;
     public Camera mainCamera;
+    public float maxHealth = 1;
 
     float fireReloadTime = 0;
     public float fireDelay = 0.15f;
@@ -21,6 +22,7 @@ public class FollowerController : MonoBehaviour
     private Vector2 playerPosition;
     private NavMeshAgent agent;
     Vector3 mouseDirection;
+    private float currentHealth;
 
 
 
@@ -32,6 +34,7 @@ public class FollowerController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        currentHealth = maxHealth;
         
     }
 
@@ -65,8 +68,6 @@ public class FollowerController : MonoBehaviour
         // If the cooldown is good
         if (fireReloadTime <= 0)
         {
-            // Cost ammo
-            // HealthBar.instance.changeValue(-ammoValue);
 
             // Get player position
             Vector3 followerPosition = follower.transform.position;
@@ -81,6 +82,16 @@ public class FollowerController : MonoBehaviour
             // audioSource.PlayOneShot(shootClip);
         }
     
+    }
+
+
+     public void Damage(float damage)
+    {
+        currentHealth -= damage;
+        // KO if no health left
+        if (currentHealth <= 0){
+            Destroy(gameObject);
+        }
     }
 
     public void initialize(Vector2 offset){

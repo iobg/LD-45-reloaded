@@ -7,10 +7,12 @@ public class PlayerController : MonoBehaviour
     public GameObject PistolCat;
     public GameObject RifleCat;
     public GameObject SniperCat;
+    public float maxHealth;
 
     private int globalY;
     private int globalX;
     private char lastUpdate = 'x';
+    private float currentHealth;
 
 
 
@@ -29,6 +31,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        currentHealth = maxHealth;
         globalX = 1;
         globalY = 1;
         createCats();
@@ -99,6 +102,16 @@ public class PlayerController : MonoBehaviour
             currentOffset = getNextOffset(currentOffset);
             newCat.initialize(currentOffset);
             InventoryController.instance.RifleCats--;
+        }
+    }
+
+    public void Damage(float damage)
+    {
+        currentHealth -= damage;
+        // KO if no health left
+        if (currentHealth <= 0){
+            Debug.Log("GAME OVER");
+            // do lots of other stuff here
         }
     }
 }

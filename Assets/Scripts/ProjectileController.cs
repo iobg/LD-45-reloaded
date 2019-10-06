@@ -11,7 +11,7 @@ public class ProjectileController : MonoBehaviour
 	public float bulletSpeed = 300.0f; // Note that speed is affected by mass too
     public float bulletMass = 0.3f;
     public float bulletStun = 0.3f;
-    
+
     float bulletDamage;
     // Start is called before the first frame update
     void Start()
@@ -57,11 +57,16 @@ public class ProjectileController : MonoBehaviour
 
         if(col.tag == "Follower" && gameObject.tag == "enemyBullet"){
       		Destroy(gameObject);
+      		FollowerController follower = col.GetComponent<FollowerController>();
+            if (follower != null) {
+                follower.Damage(bulletDamage);
+            }
 
         }
 
          if(col.tag == "Player" && gameObject.tag == "enemyBullet"){
       		Destroy(gameObject);
+      		PlayerController.instance.Damage(bulletDamage);
 
         }
        
