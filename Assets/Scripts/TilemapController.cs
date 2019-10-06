@@ -10,7 +10,8 @@ public class TilemapController : MonoBehaviour
 
     //Public variables
     public TileBase hoverTile; // Tile for the hover visual
-    public Vector3Int affectedCoordinate;
+    public static Vector3Int affectedCoordinate;
+    public TileBase[] tileArray; // in order: null grass dirt wall
 
     //Private variables
     private static Tilemap hoverMap;   //TODO if time: don't use an entire Tilemap for the hover visual
@@ -51,6 +52,7 @@ public class TilemapController : MonoBehaviour
 
         // Get the tile that we are facing
         affectedCoordinate = getAffectedTile();
+        //Debug.Log(affectedCoordinate);
         // Visual indicator of that tile
         hoverMap.SetTile(affectedCoordinate, hoverTile);
     }
@@ -76,8 +78,33 @@ public class TilemapController : MonoBehaviour
         return affectedCoordinate;
     }
 
+    public Vector3Int getAffectedCoordinate(){
+        return affectedCoordinate;
+    }
 
+    // Destroy a tile
     public void destroyTile(Vector3Int tileCoordinate){
         groundMap.SetTile(tileCoordinate, null);
     }
+
+    // Turn a tile into dirt
+    public void tillTile(Vector3Int tileCoordinate){
+        groundMap.SetTile(tileCoordinate, findTile("DirtRuleTile"));
+    }
+
+
+    // Helper method for finding the tile by name in tileArray
+    private TileBase findTile(string name){
+        foreach(TileBase myTile in tileArray){
+            
+             if(myTile != null && myTile.name == name)
+             {
+                 return myTile;
+             }
+        }
+        // If not found
+        Debug.Log("Tile " + name +" not found in tileArray. See TilemapController.findTile(string)");
+        return null;
+    }
+
 }

@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverTile: {fileID: 11400000, guid: 7cd1270927ea8714c9efdd8937f1338b, type: 2}
-  affectedCoordinate: {x: 0, y: 0, z: 0}
+  tileArray: []
 --- !u!483693784 &510339534
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -4528,7 +4528,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverTile: {fileID: 0}
-  affectedCoordinate: {x: 0, y: 0, z: 0}
+  tileArray:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 51a1877cdf2a99840a116ff2a6ad4acb, type: 2}
+  - {fileID: 11400000, guid: cb6f6cf0098919240a63f3ead9182254, type: 2}
+  - {fileID: 11400000, guid: 3e33d3cf2d4506b40825f7e40d03a7a3, type: 2}
 --- !u!19719996 &765056849
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -4769,6 +4773,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7251624261112191551, guid: 9bf12dc533f8a374490332340e3e4040,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7251624261112191551, guid: 9bf12dc533f8a374490332340e3e4040,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7251624261112191550, guid: 9bf12dc533f8a374490332340e3e4040,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0daff0cb3b704994c83f084ef1c6172d,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 7251624261112191544, guid: 9bf12dc533f8a374490332340e3e4040, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9bf12dc533f8a374490332340e3e4040, type: 3}

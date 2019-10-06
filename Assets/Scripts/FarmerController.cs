@@ -76,7 +76,7 @@ public class FarmerController : MonoBehaviour
         if (Input.GetMouseButton(0) && actionTimer <= 0)
         {
             actionTimer = actionSpeed;
-            Vector3Int affectedTile = tilemap.affectedCoordinate;
+            Vector3Int affectedTile = tilemap.getAffectedCoordinate();
             // Depending on what is equipped
             switch(equippedObject)
             {
@@ -111,7 +111,7 @@ public class FarmerController : MonoBehaviour
 
     // If player has pickaxe
     void pickTile(Vector3Int affectedTile){
-        tilemap.destroyTile(affectedTile);
+        tilemap.tillTile(affectedTile);
         return;
     }
 
