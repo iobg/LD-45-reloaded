@@ -7,6 +7,8 @@ public class FollowerController : MonoBehaviour
 {	
 
     // Public variables
+    [SerializeField]
+    public Color colorToTurnTo = Color.white;
     public GameObject follower;
 	public float moveSpeed = 10f;
     public Vector2 followerOffset;
@@ -23,18 +25,27 @@ public class FollowerController : MonoBehaviour
     private NavMeshAgent agent;
     Vector3 mouseDirection;
     private float currentHealth;
+    private Renderer rend;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+
         //Navmesh code to lock rotation
         mainCamera = Camera.main;
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         currentHealth = maxHealth;
+
+
+        // Assign Renderer component to rend variable
+        rend = GetComponent<Renderer>();
+
+        // Change sprite color to selected color
+        rend.material.color = colorToTurnTo;
         
     }
 
@@ -45,10 +56,20 @@ public class FollowerController : MonoBehaviour
 
         mouseDirection = Input.mousePosition - new Vector3(screenPosition.x, screenPosition.y, 0);
         playerPosition = PlayerController.instance.GetComponent<Rigidbody2D>().position;
+        Vector3 followerPosition = follower.transform.position;
+
         Vector3 placeToBe = playerPosition + followerOffset;
 
         // Navmesh move to place
         agent.SetDestination(placeToBe);
+
+        //sprite flip for direction they're moving
+        if(placeToBe.x > followerPosition.x){
+             GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else if(placeToBe.x < followerPosition.x){
+              GetComponent<SpriteRenderer>().flipX = true;
+        }
 
         if (fireReloadTime > 0){
             fireReloadTime -= Time.deltaTime;
@@ -71,6 +92,7 @@ public class FollowerController : MonoBehaviour
 
             // Get player position
             Vector3 followerPosition = follower.transform.position;
+            
 
             // fireReloadTime = fireDelay;
             float atan2 = Mathf.Atan2(mouseDirection.y, mouseDirection.x);
@@ -98,3 +120,5 @@ public class FollowerController : MonoBehaviour
         followerOffset = offset;
     }
 }
+
+

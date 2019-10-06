@@ -45,6 +45,13 @@ public class PlayerController : MonoBehaviour
         Vector2 position = GetComponent<Rigidbody2D>().position;
         position = position + move * moveSpeed * Time.deltaTime;
         GetComponent<Rigidbody2D>().MovePosition(position);
+
+        if(horizontal > 0){
+             GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else if(horizontal < 0){
+              GetComponent<SpriteRenderer>().flipX = true;
+        }
     }
 
     Vector2 getNextOffset(Vector2 offset){
