@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class PlayerController : MonoBehaviour
     public GameObject SniperCat;
     public float maxHealth;
 
+
     private int globalY;
     private int globalX;
     private char lastUpdate = 'x';
     private float currentHealth;
+
 
 
 
@@ -34,6 +37,7 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
         globalX = 1;
         globalY = 1;
+        GameObject.Find("playerHP").GetComponent<Text>().text = "HP: " + currentHealth.ToString() + "/" + maxHealth.ToString();
         createCats();
     }
 
@@ -49,7 +53,7 @@ public class PlayerController : MonoBehaviour
         if(horizontal > 0){
              GetComponent<SpriteRenderer>().flipX = false;
         }
-        else if(horizontal < 0){
+        else {
               GetComponent<SpriteRenderer>().flipX = true;
         }
     }
@@ -120,5 +124,8 @@ public class PlayerController : MonoBehaviour
             Debug.Log("GAME OVER");
             // do lots of other stuff here
         }
+    }
+    public float getHealth(){
+        return currentHealth;
     }
 }

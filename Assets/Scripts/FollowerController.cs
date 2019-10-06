@@ -67,7 +67,7 @@ public class FollowerController : MonoBehaviour
         if(placeToBe.x > followerPosition.x){
              GetComponent<SpriteRenderer>().flipX = false;
         }
-        else if(placeToBe.x < followerPosition.x){
+        else {
               GetComponent<SpriteRenderer>().flipX = true;
         }
 

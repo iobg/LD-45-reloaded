@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ProjectileController : MonoBehaviour
 {
@@ -72,6 +73,7 @@ public class ProjectileController : MonoBehaviour
       		Destroy(gameObject);
       		Instantiate(particles, transform.position, transform.rotation);
       		PlayerController.instance.Damage(bulletDamage);
+      		GameObject.Find("playerHP").GetComponent<Text>().text = "HP: " + PlayerController.instance.getHealth().ToString() + "/" + PlayerController.instance.maxHealth.ToString();
 
         }
        
