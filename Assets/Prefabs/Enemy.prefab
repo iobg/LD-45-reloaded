@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e5d625fd901b14e9743b60b1bd5252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.5
+  moveSpeed: 2
   maxHealth: 10
   delayBetweenShots: 2
   hasWeapon: 1

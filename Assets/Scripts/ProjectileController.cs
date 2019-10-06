@@ -7,6 +7,7 @@ public class ProjectileController : MonoBehaviour
 
 	Rigidbody2D rigidbody2d;
 
+	public ParticleSystem particles;
 
 	public float bulletSpeed = 300.0f; // Note that speed is affected by mass too
     public float bulletMass = 0.3f;
@@ -44,10 +45,11 @@ public class ProjectileController : MonoBehaviour
 
         if(col.name == "Walls"){
         	 Destroy(gameObject);
+        	 Instantiate(particles, transform.position, transform.rotation);
         }
         if(col.tag == "Enemy" && gameObject.tag == "friendlyBullet"){
       		Destroy(gameObject);
-
+      		Instantiate(particles, transform.position, transform.rotation);
       		 EnemyController enemy = col.GetComponent<EnemyController>();
             if (enemy != null) {
             	enemy.Stun((float)0.5);
@@ -57,15 +59,18 @@ public class ProjectileController : MonoBehaviour
 
         if(col.tag == "Follower" && gameObject.tag == "enemyBullet"){
       		Destroy(gameObject);
+      		Instantiate(particles, transform.position, transform.rotation);
       		FollowerController follower = col.GetComponent<FollowerController>();
             if (follower != null) {
                 follower.Damage(bulletDamage);
+
             }
 
         }
 
          if(col.tag == "Player" && gameObject.tag == "enemyBullet"){
       		Destroy(gameObject);
+      		Instantiate(particles, transform.position, transform.rotation);
       		PlayerController.instance.Damage(bulletDamage);
 
         }

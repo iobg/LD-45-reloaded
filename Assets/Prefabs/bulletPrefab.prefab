@@ -132,7 +132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0772aa2e970eead49be7a4245f701502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles: {fileID: 2687295389755378207, guid: 3b8b7a0d7b6dd3847aae7ecb20d02ae6,
+    type: 3}
   bulletSpeed: 300
   bulletMass: 0.3
   bulletStun: 0.3
-  friendlyBullet: 0

@@ -124,7 +124,7 @@ MonoBehaviour:
   maxHealth: 4
   fireDelay: 2
   bulletDamage: 10
-  bulletPrefab: {fileID: 5408189369638057747, guid: 1b8652173a8a6b347a9759f1c2553331,
+  bulletPrefab: {fileID: 3184305721101846385, guid: 3cf81d86aafc8104fa9e1ecb4880255a,
     type: 3}
 --- !u!61 &8491884960470023971
 BoxCollider2D:
@@ -173,4 +173,4 @@ NavMeshAgent:
   m_Height: 0.5
   m_BaseOffset: 0
   m_WalkableMask: 1
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1

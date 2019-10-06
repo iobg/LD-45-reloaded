@@ -124,7 +124,7 @@ MonoBehaviour:
   maxHealth: 3
   fireDelay: 0.1
   bulletDamage: 0.5
-  bulletPrefab: {fileID: 5408189369638057747, guid: 1b8652173a8a6b347a9759f1c2553331,
+  bulletPrefab: {fileID: 8451432047924853131, guid: 03cfe512f644f94408f82c1e58d18139,
     type: 3}
 --- !u!61 &7797138005479972179
 BoxCollider2D:
