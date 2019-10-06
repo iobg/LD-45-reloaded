@@ -82,8 +82,8 @@ public class PlayerController : MonoBehaviour
             lastUpdate= 'x';
         }
         if(offset.x == 0 && offset.y == 0){
-            offset.x = 1;
-            offset.y = 1;
+            offset.x = -globalX;
+            offset.y = -globalY;
         }
         return offset;
 
