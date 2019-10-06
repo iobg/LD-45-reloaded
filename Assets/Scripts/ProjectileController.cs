@@ -39,4 +39,23 @@ public class ProjectileController : MonoBehaviour
         rigidbody2d.AddForce(direction * bulletSpeed);
         this.bulletDamage = bulletDamage;
     }
+
+        void OnTriggerEnter2D(Collider2D col)
+    {
+    	Debug.Log(col.name);
+        if(col.name == "Walls"){
+        	 Destroy(gameObject);
+        }
+        if(col.name == "Enemy"){
+      		Destroy(gameObject);
+
+      		 EnemyController enemy = col.GetComponent<EnemyController>();
+            if (enemy != null) {
+                enemy.Damage(bulletDamage);
+            }
+        }
+       
+        // restart = true;
+        // timer = 0.0f;
+    }
 }

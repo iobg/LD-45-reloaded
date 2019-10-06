@@ -45,14 +45,15 @@ public class PlayerController : MonoBehaviour
     }
 
     Vector2 getNextOffset(Vector2 offset){
-        Debug.Log(offset);
-        if (offset.x == globalX){
+        if (offset.x == globalX && lastUpdate == 'y' ){
             globalX++;
             offset.x = globalX *-1;
+            lastUpdate = 'x';
         }
-         else if (offset.y == globalY){
+         else if (offset.y == globalY && lastUpdate == 'x'){
             globalY++;
             offset.y = globalY *-1;
+            lastUpdate = 'y';
         }
         else if (offset.x == offset.y && lastUpdate == 'x' && offset.y < globalY){
             offset.y++;
@@ -62,13 +63,18 @@ public class PlayerController : MonoBehaviour
             offset.x++;
             lastUpdate= 'x';
         }
-        else if (offset.y < offset.x){
+        else if (offset.y < offset.x && lastUpdate == 'x'){
             offset.y++;
+            lastUpdate= 'y';
         }
-        else if (offset.x < offset.y){
+        else if (offset.x < offset.y && lastUpdate == 'y'){
             offset.x++;
+            lastUpdate= 'x';
         }
-        Debug.Log(globalX);
+        if(offset.x == 0 && offset.y == 0){
+            offset.x = 1;
+            offset.y = 1;
+        }
         return offset;
 
     }
