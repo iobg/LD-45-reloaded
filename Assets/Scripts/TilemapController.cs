@@ -10,6 +10,7 @@ public class TilemapController : MonoBehaviour
 
     //Public variables
     public TileBase hoverTile; // Tile for the hover visual
+    public Vector3Int affectedCoordinate;
 
     //Private variables
     private static Tilemap hoverMap;   //TODO if time: don't use an entire Tilemap for the hover visual
@@ -38,6 +39,7 @@ public class TilemapController : MonoBehaviour
         // To make sure there's only one selected tile at a time
         hoverMap.ClearAllTiles();
 
+        /*
         // save the camera as public field if you using not the main camera
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         // get the collision point of the ray with the z = 0 plane
@@ -45,9 +47,17 @@ public class TilemapController : MonoBehaviour
         Vector3Int position = grid.WorldToCell(worldPoint);
         // Visual indicator of the tile the mouse is hovering
         hoverMap.SetTile(position, hoverTile);
+        */
+
+        // Get the tile that we are facing
+        affectedCoordinate = getAffectedTile();
+        // Visual indicator of that tile
+        hoverMap.SetTile(affectedCoordinate, hoverTile);
     }
 
-    public Vector3Int getAffectedTile(){
+
+//    public Vector3Int getAffectedTile(){
+    private Vector3Int getAffectedTile(){
         // What tile is the farmer standing on?
         Vector3Int farmerCoordinate = grid.WorldToCell(farmer.GetComponent<Rigidbody2D>().position);
         farmerTile = groundMap.GetTile(farmerCoordinate);
@@ -65,6 +75,7 @@ public class TilemapController : MonoBehaviour
 
         return affectedCoordinate;
     }
+
 
     public void destroyTile(Vector3Int tileCoordinate){
         groundMap.SetTile(tileCoordinate, null);
