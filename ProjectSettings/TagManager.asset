@@ -11,6 +11,7 @@ TagManager:
   - PlayerHP
   - Key
   - Door
+  - Portal
   layers:
   - Default
   - TransparentFX

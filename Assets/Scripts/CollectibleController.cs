@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollectibleController : MonoBehaviour
 {
@@ -26,6 +27,10 @@ public class CollectibleController : MonoBehaviour
     		if (gameObject.tag == "Door" && InventoryController.instance.Key >= 1){
     			Destroy(gameObject);
     			InventoryController.instance.Key--;
+    		}
+
+    		   if (gameObject.tag == "Portal"){
+    		   	SceneManager.LoadScene("FarmingScene");
     		}
 
     	}
