@@ -29,7 +29,7 @@ public class CollectibleController : MonoBehaviour
     			InventoryController.instance.Key--;
     		}
 
-    		   if (gameObject.tag == "Portal"){
+    		  if (gameObject.tag == "Portal"){
     		   	SceneManager.LoadScene("FarmingScene");
     		}
 
