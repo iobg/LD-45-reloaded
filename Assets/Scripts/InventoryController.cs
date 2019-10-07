@@ -5,14 +5,17 @@ using UnityEngine;
 public class InventoryController : MonoBehaviour
 {
 
-	public static InventoryController instance {get; private set;}
+    public static InventoryController instance {get; private set;}
 
-	public int PistolCats;
-	public int RifleCats;
-	public int SniperCats;
-	public int Key;
+    public int PistolCats;
+    public int RifleCats;
+    public int SniperCats;
+    public int PistolSeeds;
+    public int RifleSeeds;
+    public int SniperSeeds;
+    public int Key;
 
-	void Awake()
+    void Awake()
     {
         instance = this;
     }

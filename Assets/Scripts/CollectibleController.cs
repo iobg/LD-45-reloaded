@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollectibleController : MonoBehaviour
 {
@@ -17,18 +18,30 @@ public class CollectibleController : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col)
-    {	
-    	if (col.name == "Player"){
-    		if (gameObject.tag == "Key"){
-    			Destroy(gameObject);
-    			InventoryController.instance.Key++;
-    		}
-    		if (gameObject.tag == "Door" && InventoryController.instance.Key >= 1){
-    			Destroy(gameObject);
-    			InventoryController.instance.Key--;
-    		}
+    {   
+        if (col.name == "Player"){
+            if (gameObject.tag == "Key"){
+                Destroy(gameObject);
+                InventoryController.instance.Key++;
+            }
+            if (gameObject.tag == "Door" && InventoryController.instance.Key >= 1){
+                Destroy(gameObject);
+                InventoryController.instance.Key--;
+            }
 
-    	}
+            if (gameObject.tag == "Portal"){
+                SceneManager.LoadScene("FarmingScene");
+            }
+            if (gameObject.name == "Pickaxe"){ // Check if problem: gameObject.name vs gameObject.tag
+                Destroy(gameObject);
+                FarmerController.instance.obtainPickaxe();
+            }
+            if (gameObject.name == "Scythe"){ // Check if problem: gameObject.name vs gameObject.tag
+                Destroy(gameObject);
+                FarmerController.instance.obtainScythe();
+            }
+
+        }
     }
 
 }

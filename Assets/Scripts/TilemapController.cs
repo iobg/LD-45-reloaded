@@ -87,6 +87,13 @@ public class TilemapController : MonoBehaviour
         groundMap.SetTile(tileCoordinate, null);
     }
 
+    public void punchTile(Vector3Int tileCoordinate){
+        if (groundMap.GetTile(tileCoordinate).name == "GRASS"){
+            groundMap.SetTile(tileCoordinate, findTile("DirtRuleTile"));
+        }
+        return;
+    }
+
     // Turn a tile into dirt
     public void tillTile(Vector3Int tileCoordinate){
         if (groundMap.GetTile(tileCoordinate).name == "GRASS"){

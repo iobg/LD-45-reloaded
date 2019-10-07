@@ -19,6 +19,10 @@ public class FarmerController : MonoBehaviour
     private SpriteRenderer equippedSprite;
     private float actionTimer;
     private static TilemapController tilemap;
+    private Vector3Int punchedTile; // Helper variable for determining if you've punched a tile twice
+    private bool hasPickaxe = false; // Player has obtained pickaxe
+    private bool hasScythe = false; // Player has obtained scythe
+
 
     void Awake()
     {
@@ -81,7 +85,9 @@ public class FarmerController : MonoBehaviour
             switch(equippedObject)
             {
                 case "fists":
-                    punchTile(affectedTile);
+                    if (punchedTile == affectedTile){
+                        punchTile(affectedTile);
+                    }
                     break;
                 case "pickaxe":
                     pickTile(affectedTile);
@@ -92,6 +98,8 @@ public class FarmerController : MonoBehaviour
                 default:
                     break;
             }
+            // For punching the same tile twice in a row
+            punchedTile = affectedTile;
         }
 
 
@@ -101,10 +109,18 @@ public class FarmerController : MonoBehaviour
         }
     }
 
+    // Player has obtained pickaxe/scthe
+    public void obtainPickaxe(){
+        hasPickaxe = true;
+    }
+    public void obtainScythe(){
+        hasScythe = true;
+    }
 
 
     // If player has fists
     void punchTile(Vector3Int affectedTile){
+        tilemap.punchTile(affectedTile);
         return;
     }
 
