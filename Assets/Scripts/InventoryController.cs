@@ -5,7 +5,8 @@ using UnityEngine;
 public class InventoryController : MonoBehaviour
 {
 
-	public static InventoryController instance {get; private set;}
+    public static InventoryController instance {get; private set;}
+
 
 	public int PistolCats;
 	public int RifleCats;
@@ -15,7 +16,8 @@ public class InventoryController : MonoBehaviour
 	public int SniperSeeds;
 	public int Key;
 
-	void Awake()
+
+    void Awake()
     {
         instance = this;
     }
