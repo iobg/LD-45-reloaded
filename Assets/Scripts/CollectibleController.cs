@@ -32,11 +32,11 @@ public class CollectibleController : MonoBehaviour
             if (gameObject.tag == "Portal"){
                 SceneManager.LoadScene("FarmingScene");
             }
-            if (gameObject.name == "Pickaxe"){ // Check if problem: gameObject.name vs gameObject.tag
+            if (gameObject.name == "PickaxeCollectable"){ // Check if problem: gameObject.name vs gameObject.tag
                 Destroy(gameObject);
                 FarmerController.instance.obtainPickaxe();
             }
-            if (gameObject.name == "Scythe"){ // Check if problem: gameObject.name vs gameObject.tag
+            if (gameObject.name == "ScytheCollectable"){ // Check if problem: gameObject.name vs gameObject.tag
                 Destroy(gameObject);
                 FarmerController.instance.obtainScythe();
             }

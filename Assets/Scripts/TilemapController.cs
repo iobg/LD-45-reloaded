@@ -12,6 +12,8 @@ public class TilemapController : MonoBehaviour
     public TileBase hoverTile; // Tile for the hover visual
     public static Vector3Int affectedCoordinate;
     public TileBase[] tileArray; // in order: null grass dirt wall
+    public CollectibleController pickaxeCollectible;
+    public CollectibleController scytheCollectible;
 
     //Private variables
     private static Tilemap hoverMap;   //TODO if time: don't use an entire Tilemap for the hover visual
@@ -88,14 +90,25 @@ public class TilemapController : MonoBehaviour
     }
 
     public void punchTile(Vector3Int tileCoordinate){
+        // Till if grass
         if (groundMap.GetTile(tileCoordinate).name == "GRASS"){
             groundMap.SetTile(tileCoordinate, findTile("DirtRuleTile"));
         }
-        return;
+        // If no pickaxe, spawn one for sure
+        if (!farmer.hasPickaxe){
+            Instantiate(pickaxeCollectible);
+            //TODO: give it some velocity
+        }
+        // If no scythe, spawn one maybe (50%)
+        else if (!farmer.hasScythe && Random.Range(0,2) == 0){
+            Instantiate(scytheCollectible);
+            //TODO: give it some velocity
+        }
     }
 
     // Turn a tile into dirt
     public void tillTile(Vector3Int tileCoordinate){
+        // Till if grass
         if (groundMap.GetTile(tileCoordinate).name == "GRASS"){
             groundMap.SetTile(tileCoordinate, findTile("DirtRuleTile"));
         }

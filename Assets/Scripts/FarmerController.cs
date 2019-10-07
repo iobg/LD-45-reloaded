@@ -13,6 +13,8 @@ public class FarmerController : MonoBehaviour
     public float moveSpeed = 10;
     public float actionSpeed = 0.5f;
     public Sprite[] spriteArray; // nothing for fists, [0] for pickaxe, [1] for scythe
+    public bool hasPickaxe = false; // Player has obtained pickaxe. Public, but has method for changing to true
+    public bool hasScythe = false; // Player has obtained scythe. Oublic, but has method for changing to true
 
     // Private variables
     private string equippedObject;
@@ -20,8 +22,8 @@ public class FarmerController : MonoBehaviour
     private float actionTimer;
     private static TilemapController tilemap;
     private Vector3Int punchedTile; // Helper variable for determining if you've punched a tile twice
-    private bool hasPickaxe = false; // Player has obtained pickaxe
-    private bool hasScythe = false; // Player has obtained scythe
+    private GameObject inventoryCanvas;
+
 
 
     void Awake()
@@ -36,6 +38,12 @@ public class FarmerController : MonoBehaviour
         equippedSprite = transform.Find("EquippedItem").gameObject.GetComponent<SpriteRenderer>();
         equippedSprite.sprite = null;
         tilemap = TilemapController.instance;
+
+        // Toggle tools off
+        // Warning: this is the hardest coded code ever
+        inventoryCanvas = GameObject.Find("InventoryCanvas");
+        inventoryCanvas.transform.Find("InvBox2").transform.Find("Image").gameObject.SetActive(false); //pick
+        inventoryCanvas.transform.Find("InvBox3").transform.Find("Image").gameObject.SetActive(false); //scythe
     }
 
     void Update()
@@ -47,6 +55,15 @@ public class FarmerController : MonoBehaviour
         Vector2 position = GetComponent<Rigidbody2D>().position;
         position = position + move * moveSpeed * Time.deltaTime;
         GetComponent<Rigidbody2D>().MovePosition(position);
+        // Direction the sprite faces
+        if(horizontal > 0){
+             GetComponent<SpriteRenderer>().flipX = false;
+             equippedSprite.flipX = false;
+        }
+        else if (horizontal < 0) {
+              GetComponent<SpriteRenderer>().flipX = true;
+              equippedSprite.flipX = true;
+        }
 
         // Switching equipment
         // Key press 1
@@ -90,10 +107,14 @@ public class FarmerController : MonoBehaviour
                     }
                     break;
                 case "pickaxe":
-                    pickTile(affectedTile);
+                    if (hasPickaxe){
+                        pickTile(affectedTile);
+                    }
                     break;
                 case "scythe":
-                    harvestTile(affectedTile);
+                    if (hasScythe){
+                        harvestTile(affectedTile);
+                    }
                     break;
                 default:
                     break;
@@ -111,9 +132,13 @@ public class FarmerController : MonoBehaviour
 
     // Player has obtained pickaxe/scthe
     public void obtainPickaxe(){
+        // I still cringe writing code like this, this would have been a -10 if this were a college assignment
+        inventoryCanvas.transform.Find("InvBox2").transform.Find("Image").gameObject.SetActive(false);
         hasPickaxe = true;
     }
     public void obtainScythe(){
+        // Make that -20
+        inventoryCanvas.transform.Find("InvBox3").transform.Find("Image").gameObject.SetActive(false);
         hasScythe = true;
     }
 
