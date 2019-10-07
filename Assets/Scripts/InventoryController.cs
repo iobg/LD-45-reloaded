@@ -10,6 +10,9 @@ public class InventoryController : MonoBehaviour
 	public int PistolCats;
 	public int RifleCats;
 	public int SniperCats;
+	public int PistolSeeds;
+	public int RifleSeeds;
+	public int SniperSeeds;
 	public int Key;
 
 	void Awake()

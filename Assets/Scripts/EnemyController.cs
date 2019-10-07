@@ -67,15 +67,19 @@ public class EnemyController : MonoBehaviour
                 // Move
                 Vector2 moveDirection = new Vector2(aimDirection.x, aimDirection.y); moveDirection.Normalize();
                 Vector2 position = GetComponent<Rigidbody2D>().position;
-                position = position + moveDirection * moveSpeed * Time.deltaTime;
-                GetComponent<Rigidbody2D>().MovePosition(position);
-                // Shoot
-                if (shotTimer <= 0){
-                    GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-                    ProjectileController projectile = bullet.GetComponent<ProjectileController>();
-                    projectile.Launch(new Vector2(aimDirection.x, aimDirection.y), enemyDamage);
-                    shotTimer = delayBetweenShots;
-                    // audioSource.Play();
+                if(PlayerController.instance.GetComponent<Rigidbody2D>().position.x - position.x <= 15 &&  PlayerController.instance.GetComponent<Rigidbody2D>().position.x - position.x >= -15){
+	                	position = position + moveDirection * moveSpeed * Time.deltaTime;
+	               		GetComponent<Rigidbody2D>().MovePosition(position);
+	                
+
+	                // Shoot
+	                if (shotTimer <= 0){
+	                    GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+	                    ProjectileController projectile = bullet.GetComponent<ProjectileController>();
+	                    projectile.Launch(new Vector2(aimDirection.x, aimDirection.y), enemyDamage);
+	                    shotTimer = delayBetweenShots;
+	                    // audioSource.Play();
+	                	}
                 } 
             } 
             // Spin really cute if no weapon

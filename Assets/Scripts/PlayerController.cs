@@ -60,12 +60,12 @@ public class PlayerController : MonoBehaviour
 
     Vector2 getNextOffset(Vector2 offset){
         if (offset.x == globalX && lastUpdate == 'y' ){
-            globalX++;
+            globalX += 2;
             offset.x = globalX *-1;
             lastUpdate = 'x';
         }
          else if (offset.y == globalY && lastUpdate == 'x'){
-            globalY++;
+            globalY+= 2;
             offset.y = globalY *-1;
             lastUpdate = 'y';
         }
@@ -86,8 +86,8 @@ public class PlayerController : MonoBehaviour
             lastUpdate= 'x';
         }
         if(offset.x == 0 && offset.y == 0){
-            offset.x = -globalX;
-            offset.y = -globalY;
+            offset.x = globalX * -1;
+            offset.y = globalY * -1;
         }
         return offset;
 

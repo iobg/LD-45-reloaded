@@ -44,7 +44,7 @@ public class ProjectileController : MonoBehaviour
         void OnTriggerEnter2D(Collider2D col)
     {	
 
-        if(col.name == "Walls"){
+        if(col.name == "Walls" || col.tag == "Door"){
         	 Destroy(gameObject);
         	 Instantiate(particles, transform.position, transform.rotation);
         }
