@@ -96,12 +96,12 @@ public class TilemapController : MonoBehaviour
         }
         // If no pickaxe, spawn one for sure
         if (!farmer.hasPickaxe){
-            Instantiate(pickaxeCollectible);
+            Instantiate(pickaxeCollectible, groundMap.CellToWorld(tileCoordinate), Quaternion.identity);
             //TODO: give it some velocity
         }
-        // If no scythe, spawn one maybe (50%)
-        else if (!farmer.hasScythe && Random.Range(0,2) == 0){
-            Instantiate(scytheCollectible);
+        // If no scythe, spawn one maybe (20%)
+        else if (!farmer.hasScythe && Random.Range(0,5) == 0){
+            Instantiate(scytheCollectible, groundMap.CellToWorld(tileCoordinate), Quaternion.identity);
             //TODO: give it some velocity
         }
     }
@@ -111,6 +111,11 @@ public class TilemapController : MonoBehaviour
         // Till if grass
         if (groundMap.GetTile(tileCoordinate).name == "GRASS"){
             groundMap.SetTile(tileCoordinate, findTile("DirtRuleTile"));
+        }
+        // If no scythe, spawn one maybe (20%)
+        if (!farmer.hasScythe && Random.Range(0,5) == 0){
+            Instantiate(scytheCollectible, groundMap.CellToWorld(tileCoordinate), Quaternion.identity);
+            //TODO: give it some velocity
         }
     }
 

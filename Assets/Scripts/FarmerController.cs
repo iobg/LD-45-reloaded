@@ -72,24 +72,29 @@ public class FarmerController : MonoBehaviour
             equippedSprite.sprite = null;
         } 
         // Key press 2
-        else if (Input.GetKeyDown("2")){
+        else if (Input.GetKeyDown("2") && hasPickaxe){
             equippedObject = "pickaxe";
             equippedSprite.sprite = spriteArray[0];
         } 
         // Key press 3
-        else if (Input.GetKeyDown("3")){
+        else if (Input.GetKeyDown("3") && hasScythe){
             equippedObject = "scythe";
             equippedSprite.sprite = spriteArray[1];
         } 
         // Key press 4
         else if (Input.GetKeyDown("4")){
-            equippedObject = "seed1";
-            equippedSprite.sprite = null;
+            equippedObject = "pistolSeed";
+            equippedSprite.sprite = spriteArray[2];
         }
         // Key press 5
         else if (Input.GetKeyDown("5")){
-            equippedObject = "seed2";
-            equippedSprite.sprite = null;
+            equippedObject = "rifleSeed";
+            equippedSprite.sprite = spriteArray[3];
+        }
+        // Key press 5
+        else if (Input.GetKeyDown("6")){
+            equippedObject = "sniperSeed";
+            equippedSprite.sprite = spriteArray[4];
         }
 
 
@@ -133,12 +138,12 @@ public class FarmerController : MonoBehaviour
     // Player has obtained pickaxe/scthe
     public void obtainPickaxe(){
         // I still cringe writing code like this, this would have been a -10 if this were a college assignment
-        inventoryCanvas.transform.Find("InvBox2").transform.Find("Image").gameObject.SetActive(false);
+        inventoryCanvas.transform.Find("InvBox2").transform.Find("Image").gameObject.SetActive(true);
         hasPickaxe = true;
     }
     public void obtainScythe(){
         // Make that -20
-        inventoryCanvas.transform.Find("InvBox3").transform.Find("Image").gameObject.SetActive(false);
+        inventoryCanvas.transform.Find("InvBox3").transform.Find("Image").gameObject.SetActive(true);
         hasScythe = true;
     }
 

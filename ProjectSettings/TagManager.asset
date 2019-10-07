@@ -11,6 +11,8 @@ TagManager:
   - PlayerHP
   - Key
   - Door
+  - ScytheCollectible
+  - PickaxeCollectible
   layers:
   - Default
   - TransparentFX
