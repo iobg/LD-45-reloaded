@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - friendlyBullet
+  - enemyBullet
+  - Enemy
+  - Follower
+  - PlayerHP
+  - Key
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -13,11 +20,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Followers
+  - Player
+  - Bullets
+  - Enemies
+  - Door
   - 
   - 
   - 
