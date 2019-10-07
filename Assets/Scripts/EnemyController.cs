@@ -67,7 +67,8 @@ public class EnemyController : MonoBehaviour
                 // Move
                 Vector2 moveDirection = new Vector2(aimDirection.x, aimDirection.y); moveDirection.Normalize();
                 Vector2 position = GetComponent<Rigidbody2D>().position;
-                if(PlayerController.instance.GetComponent<Rigidbody2D>().position.x - position.x <= 15 &&  PlayerController.instance.GetComponent<Rigidbody2D>().position.x - position.x >= -15){
+                if(PlayerController.instance.GetComponent<Rigidbody2D>().position.x - position.x <= 15 &&  PlayerController.instance.GetComponent<Rigidbody2D>().position.x - position.x >= -15
+                	&& PlayerController.instance.GetComponent<Rigidbody2D>().position.y - position.y <= 15 &&  PlayerController.instance.GetComponent<Rigidbody2D>().position.y - position.y >= -15){
 	                	position = position + moveDirection * moveSpeed * Time.deltaTime;
 	               		GetComponent<Rigidbody2D>().MovePosition(position);
 	                
