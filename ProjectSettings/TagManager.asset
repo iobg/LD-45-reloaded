@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Follower
   - PlayerHP
+  - Key
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -22,7 +24,7 @@ TagManager:
   - Player
   - Bullets
   - Enemies
-  - 
+  - Door
   - 
   - 
   - 
