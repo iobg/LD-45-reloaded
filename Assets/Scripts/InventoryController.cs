@@ -15,8 +15,13 @@ public class InventoryController : MonoBehaviour
     public int SniperSeeds;
     public int Key;
 
+    public bool pickaxe = false;
+    public bool scythe = false;
+
     void Awake()
     {
+        // This object can persist between scenes
+        DontDestroyOnLoad(transform.gameObject);
         instance = this;
     }
 
