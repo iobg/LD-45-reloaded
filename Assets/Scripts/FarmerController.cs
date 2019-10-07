@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class FarmerController : MonoBehaviour
 {
@@ -26,6 +27,11 @@ public class FarmerController : MonoBehaviour
 
     // Helper variable for determining if you've punched a tile twice
     private Vector3Int punchedTile;
+
+    // Helper varibles to reduce code clutter
+    private Transform InvBox4;
+    private Transform InvBox5;
+    private Transform InvBox6;
 
     void Awake()
     {
@@ -71,6 +77,12 @@ public class FarmerController : MonoBehaviour
             tmpString = "InvBox" + i.ToString();
             inventoryCanvas.transform.Find(tmpString).transform.Find("Image").gameObject.SetActive(false);
         }
+
+        // Inventory variables to reudce code clutter
+        InvBox4 = inventoryCanvas.transform.Find("InvBox4").transform.Find("Image");
+        InvBox5 = inventoryCanvas.transform.Find("InvBox5").transform.Find("Image");
+        InvBox6 = inventoryCanvas.transform.Find("InvBox6").transform.Find("Image");
+
     }
 
     void Update()
@@ -154,6 +166,19 @@ public class FarmerController : MonoBehaviour
             // For punching the same tile twice in a row
             punchedTile = affectedTile;
         }
+
+        // Update inventory numbers and pictures
+        // This happens once per frame instead of when the player picks up an object because screw the rules
+        // Also I was scared that attaching it to InventoryController or CollectibleController would mess 
+        // with the dungeon part of the game
+        InvBox4.Find("Amount").gameObject.GetComponent<Text>().text = inventory.PistolSeeds.ToString();
+        InvBox5.Find("Amount").gameObject.GetComponent<Text>().text = inventory.RifleSeeds.ToString();
+        InvBox6.Find("Amount").gameObject.GetComponent<Text>().text = inventory.SniperSeeds.ToString();
+
+        InvBox4.gameObject.SetActive(inventory.PistolSeeds > 0);
+        InvBox5.gameObject.SetActive(inventory.RifleSeeds > 0);
+        InvBox6.gameObject.SetActive(inventory.SniperSeeds > 0);
+
 
 
         //Reduce timers

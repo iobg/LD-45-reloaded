@@ -18,6 +18,8 @@ public class InventoryController : MonoBehaviour
     public bool pickaxe = false;
     public bool scythe = false;
 
+    private GameObject inventoryHUD;
+
     void Awake()
     {
         // This object can persist between scenes
@@ -28,7 +30,6 @@ public class InventoryController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         
     }
 

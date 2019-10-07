@@ -248,6 +248,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 196e2eeff434ef745ac9a2c67d11957d,
         type: 3}
+    - target: {fileID: 162851061820132378, guid: b3932df727047ed4e967c2f52f360dad,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3932df727047ed4e967c2f52f360dad, type: 3}
 --- !u!224 &2159477 stripped
@@ -912,6 +917,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 033e44f89e9701f42b77bc1b877cf6b5,
         type: 3}
+    - target: {fileID: 162851061820132378, guid: b3932df727047ed4e967c2f52f360dad,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3932df727047ed4e967c2f52f360dad, type: 3}
 --- !u!224 &696475581 stripped
@@ -5363,10 +5373,12 @@ MonoBehaviour:
   PistolCats: 0
   RifleCats: 0
   SniperCats: 0
-  PistolSeeds: 0
-  RifleSeeds: 0
-  SniperSeeds: 0
+  PistolSeeds: 1
+  RifleSeeds: 3
+  SniperSeeds: 5
   Key: 0
+  pickaxe: 0
+  scythe: 0
 --- !u!4 &1800798260
 Transform:
   m_ObjectHideFlags: 0
@@ -5509,6 +5521,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 51d6ef115fd469f46b385c613c4dddc0,
         type: 3}
+    - target: {fileID: 162851061820132378, guid: b3932df727047ed4e967c2f52f360dad,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3932df727047ed4e967c2f52f360dad, type: 3}
 --- !u!224 &1990104361 stripped
