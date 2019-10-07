@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public GameObject RifleCat;
     public GameObject SniperCat;
     public float maxHealth;
+    AudioSource dungeonMusic;
 
 
     private int globalY;
